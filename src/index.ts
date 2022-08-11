@@ -9,6 +9,8 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-app.use('/persons/', require('./routes/persons.js'));
+app.use('/persons/', require('./routes/persons.ts'));
 
-app.listen(3000);
+app.listen(3000, () => {
+  console.log('listening on port 3000.');
+});

@@ -8,4 +8,4 @@
 $ yarn dev
 ```
 
-Access use browser to `localhost:3000/persons`.
+Let's access use browser to `localhost:3000/persons`.
