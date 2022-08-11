@@ -81,14 +81,14 @@ const validateName = (name: string) => {
   return true;
 };
 
-const validateAge = (age: number) => {
+const validateAge = (age: string) => {
   const MIN_VALUE = 0;
   const MAX_VALUE = 300;
 
   if (typeof age === 'undefined') return false;
   if (!age) return false;
-  if (age < MIN_VALUE) return false;
-  if (age > MAX_VALUE) return false;
+  if (Number(age) < MIN_VALUE) return false;
+  if (Number(age) > MAX_VALUE) return false;
 
   return true;
 };
