@@ -1,19 +1,13 @@
 import express from 'express';
+import { Fields } from 'types/data';
 
-const table = require('../airtable');
+const table = require('../utils/airtable');
 const router = require('express').Router();
 
 router.get('/', (request: express.Request, response: express.Response) => {
   const persons = getPerson();
   response.status(200).send(persons);
 });
-
-type Fields = {
-  fields: {
-    name: string;
-    age: string;
-  };
-};
 
 const getPerson = async () => {
   const MAX_RECORD = 10;
