@@ -9,7 +9,7 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-app.use('/persons/', require('./routes/persons.ts'));
+app.use('/persons/', require('./ddd/controller/person.controller.ts'));
 
 app.listen(3000, () => {
   console.log('listening on port 3000.');
