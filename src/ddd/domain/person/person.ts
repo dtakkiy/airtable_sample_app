@@ -5,10 +5,10 @@ export class Person {
   constructor(private readonly name: NameVO, private readonly age: AgeVO) {}
 
   getName = () => {
-    this.name.getValue();
+    this.name.value;
   };
 
   getAge = () => {
-    this.age.getValue();
+    this.age.value;
   };
 }
