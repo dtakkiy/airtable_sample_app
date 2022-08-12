@@ -14,7 +14,7 @@ export class NameVO {
     return true;
   }
 
-  public getValue() {
-    this.name;
+  public get value() {
+    return this.name;
   }
 }

@@ -16,7 +16,7 @@ export class AgeVO {
     return true;
   }
 
-  public getValue() {
-    this.age;
+  public get value() {
+    return this.age;
   }
 }
