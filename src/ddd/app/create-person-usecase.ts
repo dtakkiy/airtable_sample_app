@@ -1,7 +1,7 @@
-import { AgeVO } from 'ddd/domain/person/age-vo';
-import { NameVO } from 'ddd/domain/person/name-vo';
-import { Person } from 'ddd/domain/person/person';
-import { IPersonRepository } from 'ddd/domain/repository-interface/person-repository-interface';
+import { AgeVO } from '../domain/person/age-vo';
+import { NameVO } from '../domain/person/name-vo';
+import { Person } from '../domain/person/person';
+import { IPersonRepository } from '../domain/repository-interface/person-repository-interface';
 
 interface Props {
   name: string;

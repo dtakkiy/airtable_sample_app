@@ -1,8 +1,8 @@
 import {
   IPersonQueryService,
   PersonDTO,
-} from 'ddd/app/query-service-interface/person-query-service';
-import { Fields } from 'types/data';
+} from '@/ddd/app/query-service-interface/person-query-service';
+import { Fields } from '@/types/data';
 
 export class PersonQueryService implements IPersonQueryService {
   constructor(private readonly table: any) {}

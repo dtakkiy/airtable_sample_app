@@ -1,8 +1,8 @@
-import { CreatePersonUseCase } from 'ddd/app/create-person-usecase';
-import { GetPersonsUseCase } from 'ddd/app/get-persons-usecase';
-import { PersonQueryService } from 'ddd/infra/db/air-table/query-service/person-query-service';
-import { PersonRepository } from 'ddd/infra/db/air-table/repository/person-repository';
 import express from 'express';
+import { CreatePersonUseCase } from '../app/create-person-usecase';
+import { GetPersonsUseCase } from '../app/get-persons-usecase';
+import { PersonQueryService } from '../infra/db/air-table/query-service/person-query-service';
+import { PersonRepository } from '../infra/db/air-table/repository/person-repository';
 const table = require('../utils/airtable');
 const router = require('express').Router();
 
