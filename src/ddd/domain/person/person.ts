@@ -1,4 +1,4 @@
-import { generator_id } from 'utils/identifier';
+import { generator_id } from '@/utils/identifier';
 import { AgeVO } from './age-vo';
 import { NameVO } from './name-vo';
 

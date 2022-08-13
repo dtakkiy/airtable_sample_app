@@ -1,5 +1,5 @@
-import { Person } from 'ddd/domain/person/person';
-import { IPersonRepository } from 'ddd/domain/repository-interface/person-repository-interface';
+import { Person } from '@/ddd/domain/person/person';
+import { IPersonRepository } from '@/ddd/domain/repository-interface/person-repository-interface';
 
 export class PersonRepository implements IPersonRepository {
   constructor(private readonly table: any) {}
