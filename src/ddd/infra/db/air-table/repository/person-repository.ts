@@ -5,11 +5,12 @@ export class PersonRepository implements IPersonRepository {
   constructor(private readonly table: any) {}
 
   public create = async (person: Person): Promise<Person> => {
-    const { name, age } = person.getAllProperties();
+    const { id, name, age } = person.getAllProperties();
 
     const data = [
       {
         fields: {
+          id: id,
           age: age,
           name: name,
         },

@@ -13,16 +13,25 @@ export class Person {
 
   public getAllProperties() {
     return {
+      id: this.id,
       name: this.name.value,
       age: this.age.value,
     };
   }
 
-  getName = () => {
+  public getID = () => {
+    return this.id;
+  };
+
+  public getName = () => {
     this.name.value;
   };
 
-  getAge = () => {
+  public getAge = () => {
     this.age.value;
+  };
+
+  public isSamePerson = (person: Person) => {
+    return person.getID() === this.getID();
   };
 }
