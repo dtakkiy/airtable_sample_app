@@ -1,7 +1,17 @@
 export class NameVO {
-  constructor(private readonly name: string) {
-    this.isValidate(name);
+  private constructor(private readonly name: string) {
+    if (!this.isValidate(name)) {
+      throw new Error('input name invalid.');
+    }
     this.name = name;
+  }
+
+  public static create(name: string): NameVO | null {
+    try {
+      return new NameVO(name);
+    } catch (e) {
+      return null;
+    }
   }
 
   private isValidate(name: string) {
@@ -9,6 +19,7 @@ export class NameVO {
 
     if (typeof name === 'undefined') return false;
     if (!name) return false;
+    if (name === '') return false;
     if (name.length > MAX_LENGTH) return false;
 
     return true;

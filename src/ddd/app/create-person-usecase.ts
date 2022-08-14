@@ -14,8 +14,16 @@ export class CreatePersonUseCase {
   public async execute(props: Props): Promise<Person> {
     const { name, age } = props;
 
-    const nameVO = new NameVO(name);
-    const ageVO = new AgeVO(age);
+    const nameVO = NameVO.create(name);
+    if (nameVO === null) {
+      throw new Error('failed create nameVO.');
+    }
+
+    const ageVO = AgeVO.create(age);
+    if (ageVO === null) {
+      throw new Error('failed create ageVO.');
+    }
+
     const person = new Person(nameVO, ageVO);
 
     await this.repository.create(person);

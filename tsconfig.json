@@ -8,12 +8,10 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
+      "@/src/*": [
         "src/*"
-      ],
-      "~/*": [
-        "src/*"
-      ]    }
+      ]
+    },
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
