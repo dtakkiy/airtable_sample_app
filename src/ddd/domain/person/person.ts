@@ -1,11 +1,14 @@
-import { generator_id } from '@/utils/identifier';
+import { v4 as uuidv4 } from 'uuid';
 import { AgeVO } from './age-vo';
 import { NameVO } from './name-vo';
 
 export class Person {
   private readonly id: string;
 
-  constructor(private readonly name: NameVO, private readonly age: AgeVO) {
+  public constructor(
+    private readonly name: NameVO,
+    private readonly age: AgeVO
+  ) {
     this.id = generator_id();
     this.name = name;
     this.age = age;
@@ -35,3 +38,7 @@ export class Person {
     return person.getID() === this.getID();
   };
 }
+
+const generator_id = (): string => {
+  return uuidv4();
+};
