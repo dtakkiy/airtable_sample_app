@@ -14,6 +14,7 @@ export class PersonQueryService implements IPersonQueryService {
       .select({
         maxRecords: MAX_RECORD,
         sort: [
+          { field: 'id', direction: 'asc' },
           { field: 'name', direction: 'asc' },
           { field: 'age', direction: 'asc' },
         ],
@@ -22,6 +23,7 @@ export class PersonQueryService implements IPersonQueryService {
 
     return records.map((record: Fields) => {
       return new PersonDTO({
+        id: record.fields.id,
         name: record.fields.name,
         age: record.fields.age,
       });
