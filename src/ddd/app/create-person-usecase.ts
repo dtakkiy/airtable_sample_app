@@ -1,3 +1,4 @@
+import { Failure, Result, Success } from '@/types/result';
 import { AgeVO } from '../domain/person/age-vo';
 import { NameVO } from '../domain/person/name-vo';
 import { Person } from '../domain/person/person';
@@ -8,26 +9,41 @@ interface Props {
   age: string;
 }
 
+export type QueryErrorCode = 'unexpected' | 'has_error_field';
+export type QueryError = { code: QueryErrorCode; payload?: any };
+
 export class CreatePersonUseCase {
   constructor(private readonly repository: IPersonRepository) {}
 
-  public async execute(props: Props): Promise<Person> {
+  public async execute(props: Props): Promise<Result<Person, QueryError>> {
     const { name, age } = props;
 
     const nameVO = NameVO.create(name);
     if (nameVO === null) {
-      throw new Error('failed create nameVO.');
+      return new Failure({
+        code: 'unexpected',
+        payload: 'failed create nameVO',
+      });
     }
 
     const ageVO = AgeVO.create(age);
     if (ageVO === null) {
-      throw new Error('failed create ageVO.');
+      return new Failure({
+        code: 'unexpected',
+        payload: 'failed create ageVO',
+      });
     }
 
     const person = new Person(nameVO, ageVO);
+    try {
+      await this.repository.create(person);
+    } catch (error) {
+      return new Failure({
+        code: 'unexpected',
+        payload: `${error}`,
+      });
+    }
 
-    await this.repository.create(person);
-
-    return person;
+    return new Success(person);
   }
 }
